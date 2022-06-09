@@ -5,7 +5,8 @@ from rest_framework.pagination import LimitOffsetPagination
 
 from posts.models import Group, Post
 from .permissions import AccessPermission
-from .serializers import CommentSerializer, FollowSerializer, GroupSerializer, PostSerializer
+from .serializers import CommentSerializer, FollowSerializer
+from .serializers import GroupSerializer, PostSerializer
 
 
 User = get_user_model()
@@ -54,7 +55,9 @@ class FollowViewSet(viewsets.ModelViewSet):
         return queryset
 
     def perform_create(self, serializer):
-        author = self.request.data['following']   # Не очень понимаю, зачем здесь тоже проверка, 
-        if self.request.user.username == author:  # но иначе валидатор почему-то не работает
-            raise serializers.ValidationError('Нельзя подписаться на самого себя!')
+        author = self.request.data['following']      # Не очень понимаю,
+        if self.request.user.username == author:     # зачем здесь тоже проверка,
+            raise serializers.ValidationError(       # но иначе валидатор
+                'Нельзя подписаться на самого себя!' # почему-то не работает
+            )
         serializer.save(user=self.request.user)
