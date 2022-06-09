@@ -55,9 +55,9 @@ class FollowViewSet(viewsets.ModelViewSet):
         return queryset
 
     def perform_create(self, serializer):
-        author = self.request.data['following']      # Не очень понимаю,
-        if self.request.user.username == author:     # зачем здесь тоже проверка,
-            raise serializers.ValidationError(       # но иначе валидатор
-                'Нельзя подписаться на самого себя!' # почему-то не работает
+        author = self.request.data['following']       # Не очень понимаю,
+        if self.request.user.username == author:   # зачем здесь тоже проверка,
+            raise serializers.ValidationError(        # но иначе валидатор
+                'Нельзя подписаться на самого себя!'  # почему-то не работает
             )
         serializer.save(user=self.request.user)
