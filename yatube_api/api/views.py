@@ -5,8 +5,9 @@ from rest_framework.pagination import LimitOffsetPagination
 
 from posts.models import Group, Post
 from .permissions import AccessPermission
-from .serializers import CommentSerializer, FollowSerializer
-from .serializers import GroupSerializer, PostSerializer
+from .serializers import (
+    CommentSerializer, FollowSerializer, GroupSerializer, PostSerializer
+)
 
 
 User = get_user_model()
