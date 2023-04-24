@@ -1,4 +1,5 @@
-# api-yatube
+# Yatube API
+
 ## _Introduction_
 Yatube API provides simple interface for apllications to get information about groups, publications, comments and follows in social network. It also allows to publish and edit posts with commentaries and follow users.
 Edit and delete actions are available only for authors.
@@ -242,5 +243,14 @@ Response samples:
 }
 ```
 
-**_Developed by Max Stepanov.
-Powered by Python._**
+### Programming language version
+`Python 3.9.2`
+
+Dependencies are located in `requirements.txt`
+
+### Стек технологий
+`Django` `Django REST Framework`
+
+### Автор проекта
+_Max Stepanov_  
+_GitHub: NewZealandMax_
